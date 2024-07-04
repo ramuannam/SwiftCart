@@ -6,6 +6,7 @@ import com.speedlink.backendproject.models.Product;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,8 +31,19 @@ public class FakeStoreProductService implements ProductService { // so here comp
     }
 
     @Override
-    public List<Product> getAllProducts() {
-        return null;
+//    public List<Product> getAllProducts() {
+//        List<FakeStoreProductDto> fakeStoreProductDtos=restTemplate.getForObject(
+//                "https://fakestoreapi.com/products" , List<FakeStoreProductDto>.class);  // so here instead of list we use simple array as at runtime we don't even have the list<FakeStoreProductDto> type list or you can say at runtime we don't have list of specific type.
+    public List<Product> getAllProducts() { //we use array as it doesn't uses "Generics".
+            FakeStoreProductDto [] fakeStoreProductDtos=restTemplate.getForObject(
+                    "https://fakestoreapi.com/products" , FakeStoreProductDto[].class);
+            //converting list of fakeStoreDtos to List Products.
+        List<Product>products=new ArrayList<>();
+        for(FakeStoreProductDto fakeStoreProductDto : fakeStoreProductDtos){
+            products.add(convertFakeStoreProductToProduct(fakeStoreProductDto));
+        }
+        return products;
+
     }
 
     //using a method as for the conversion to Product as this conversion need multiple times.

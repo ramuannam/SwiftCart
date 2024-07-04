@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.speedlink.backendproject.services.ProductService;
 import org.springframework.web.client.RestTemplate;
 
+
+
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/products")
@@ -28,7 +31,8 @@ public class ProductController {
            return  productService.getSingleProduct(id);
        }
 
-       public ArrayList<Product> getAllProducts(){
-           return new ArrayList<Product>();
+       @GetMapping()
+       public List<Product> getAllProducts(){
+        return  productService.getAllProducts();
        }
 }
