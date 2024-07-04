@@ -3,7 +3,12 @@ package com.speedlink.backendproject.services;
 import com.speedlink.backendproject.dtos.FakeStoreProductDto;
 import com.speedlink.backendproject.models.Category;
 import com.speedlink.backendproject.models.Product;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpMessageConverterExtractor;
+import org.springframework.web.client.RequestCallback;
+import org.springframework.web.client.ResponseExtractor;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -43,6 +48,31 @@ public class FakeStoreProductService implements ProductService { // so here comp
             products.add(convertFakeStoreProductToProduct(fakeStoreProductDto));
         }
         return products;
+
+    }
+
+    @Override // update = partial update which is PATCH.
+    public Product updateProduct(Long id, Product product) {
+//        RequestCallback requestCallback = this.httpEntityCallback(request, responseType);
+//        HttpMessageConverterExtractor<T> responseExtractor = new HttpMessageConverterExtractor(responseType, this.getMessageConverters());
+//        return this.execute(url, HttpMethod.PATCH, requestCallback, responseExtractor);
+
+        //this--> refers to restTemplate as we taken from restTemplate implementation.
+        //request--> what you are sending through this method as input..(what object you want to update with)
+        //responseType--> Type of response that you are expecting in return,and this type should be of class. so (.class).
+        RequestCallback requestCallback = restTemplate.httpEntityCallback(product, FakeStoreProductDto.class);
+        HttpMessageConverterExtractor<FakeStoreProductDto> responseExtractor = new HttpMessageConverterExtractor(FakeStoreProductDto.class, restTemplate.getMessageConverters());
+        FakeStoreProductDto response =  restTemplate.execute("https://fakestoreapi.com/products/"+ id , HttpMethod.PATCH, requestCallback, responseExtractor);
+         return convertFakeStoreProductToProduct(response);
+    }
+
+    @Override
+    public Product replaceProduct(Long id, Product product) {
+        return null;
+    }
+
+    @Override
+    public void deleteProduct(Long id) {
 
     }
 

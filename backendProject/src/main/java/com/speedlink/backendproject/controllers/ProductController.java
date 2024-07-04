@@ -2,10 +2,7 @@ package com.speedlink.backendproject.controllers;
 
 import com.speedlink.backendproject.models.Product;
 import com.speedlink.backendproject.services.FakeStoreProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.speedlink.backendproject.services.ProductService;
 import org.springframework.web.client.RestTemplate;
@@ -35,4 +32,30 @@ public class ProductController {
        public List<Product> getAllProducts(){
         return  productService.getAllProducts();
        }
+
+       @PatchMapping("/{id}")  // partial update
+       public   Product updateProduct(@PathVariable("id") Long id,@RequestBody Product product){
+        return productService.updateProduct(id,product);
+       }
+
+       @PutMapping("/{id}")  // Complete update or complete replace
+       public Product replaceProduct(@PathVariable("id") Long id,@RequestBody Product product){
+           return null;
+
+       }
+       public void deleteProduct(Long productId){
+      }
+//      public addProduct(){
+//
+//       }
+//       public limitResults(){
+//
+//       }
+//
+//       public getAllCategories(){
+//
+//       }
+//       public getInCategory(){
+//
+//       }
 }
