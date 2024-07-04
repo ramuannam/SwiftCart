@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="BuddyNet" />
+        <module name="backendProject" />
+        <module name="ScalerNet" />
+        <module name="example_20" />
+        <module name="Scalerschool" />
+        <module name="SpeedLink" />
+        <module name="BuddyNet (1)" />
+        <module name="demo" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="BuddyNet" options="-parameters" />
+      <module name="BuddyNet (1)" options="-parameters" />
+      <module name="ScalerNet" options="-parameters" />
+      <module name="Scalerschool" options="-parameters" />
+      <module name="SpeedLink" options="-parameters" />
+      <module name="backendProject" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="example_20" options="-parameters" />
+    </option>
+  </component>
+</project>
