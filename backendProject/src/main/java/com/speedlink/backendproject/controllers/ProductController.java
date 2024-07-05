@@ -1,7 +1,10 @@
 package com.speedlink.backendproject.controllers;
 
+import com.speedlink.backendproject.exceptions.ProductNotFoundException;
 import com.speedlink.backendproject.models.Product;
 import com.speedlink.backendproject.services.FakeStoreProductService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.speedlink.backendproject.services.ProductService;
@@ -24,8 +27,29 @@ public class ProductController {
     }
 
        @GetMapping("{id}")
-       public Product getProductById(@PathVariable("id") Long id){   //if you pass an id it should return Product object.
-           return  productService.getSingleProduct(id);
+       public ResponseEntity<Product> getProductById(@PathVariable("id") Long id) throws ProductNotFoundException {   //if you pass an id it should return Product object in the Response Entity.
+
+//        ResponseEntity<Product> responseEntity=null;
+//                try{
+//                  Product product=  productService.getSingleProduct(id);
+//                  responseEntity=new ResponseEntity<>(
+//                          product,
+//                          HttpStatus.OK
+//                  );
+//                } catch (RuntimeException e){
+//                    responseEntity= new ResponseEntity<>(
+//                            HttpStatus.NOT_FOUND
+//                    );
+//           }
+//                return responseEntity;
+
+//        throw new RuntimeException("Something went wrong");
+
+                   ResponseEntity<Product> response=new ResponseEntity<>(
+                   productService.getSingleProduct(id),
+                    HttpStatus.OK
+           );
+           return  response;
        }
 
        @GetMapping()

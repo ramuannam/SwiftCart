@@ -1,14 +1,13 @@
 package com.speedlink.backendproject.services;
 
 import com.speedlink.backendproject.dtos.FakeStoreProductDto;
+import com.speedlink.backendproject.exceptions.ProductNotFoundException;
 import com.speedlink.backendproject.models.Category;
 import com.speedlink.backendproject.models.Product;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpMessageConverterExtractor;
 import org.springframework.web.client.RequestCallback;
-import org.springframework.web.client.ResponseExtractor;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -23,16 +22,22 @@ public class FakeStoreProductService implements ProductService { // so here comp
          this.restTemplate=restTemplate;
    }
     @Override
-    public Product getSingleProduct(Long productId) {
+    public Product getSingleProduct(Long productId) throws ProductNotFoundException {
         //Now lets call fakeStore to Fetch the product with given id. => HTTP CALL
         //so using RestTemplate (which is a class in spring web) allow you to make call http to third party systems.
         //   RestTemplate restTemplate=new RestTemplate();
-      FakeStoreProductDto fakeStoreProductDto =  restTemplate.getForObject(
+
+     FakeStoreProductDto fakeStoreProductDto =  restTemplate.getForObject(
                 "https://fakestoreapi.com/products/" + productId, FakeStoreProductDto.class
         );
 
-      //finally converting the FakeStoreProductDto object to product object.
-      return convertFakeStoreProductToProduct(fakeStoreProductDto);
+     //finally converting the FakeStoreProductDto object to product object.
+        if(fakeStoreProductDto==null){ //avoiding NullPointerException
+            throw new ProductNotFoundException("Product with id"+ productId +" doesn't exist" );
+        }
+        return convertFakeStoreProductToProduct(fakeStoreProductDto);
+
+        //        throw new RuntimeException("Something went wrong");
     }
 
     @Override
