@@ -19,8 +19,9 @@ public class ContactController { //created new controller for contact as contact
 
     private static Logger log= LoggerFactory.getLogger(ContactController.class);
 
-    @Autowired
+   // DI
     private final ContactService contactService;
+    @Autowired
      public ContactController (ContactService contactService){
          this.contactService=contactService;
      }
@@ -41,10 +42,10 @@ public class ContactController { //created new controller for contact as contact
 //        return new ModelAndView("redirect:/contact"); //so  here after the data submitted to backend, here we are creating new ModelAndView Object and  in this we jus redirecting to contact page without changing any attributes in this object, the user will redirect to contact page again with fresh page.
 //     }
 
-    //so instead of long variables in method we used an object.
+    //so instead of  variables in method we used an object.
     @RequestMapping(value = "/saveMsg", method = POST)  // OR SIMPLY @PostMapping("/saveMsg")
     public ModelAndView saveMsg(Contact contact){ // by using POJO object all the attributes from client gets mapped to the object and assigned to the object.
-         contactService.saveMessageDetails(contact);
+         contactService.saveMessageDetails(contact); // taking the given object to service layer to do some logic.
            return new ModelAndView("redirect:/contact");
     }
 }

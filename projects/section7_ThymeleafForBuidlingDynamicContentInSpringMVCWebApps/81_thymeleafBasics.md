@@ -30,4 +30,4 @@ In this section we build backend of HOME page in sclaer school in the "WHY CHOOS
 >84.Building contact page from home.\
 >So for now, please make a note that just like how we have model interface which will support sending
 the data and receiving the data between UI and backend code.
-Very similarly, we have a ModelAndView class which will support sending data and the view information.
+Very similarly, we have a <mark> ModelAndView class which will support sending data and the view information.</mark>
