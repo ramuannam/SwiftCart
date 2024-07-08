@@ -1,19 +1,26 @@
 package com.hustler.scalerschool.controller;
 
 import com.hustler.scalerschool.model.Holiday;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Controller
 public class HolidaysController {
 
     @GetMapping("/holidays")
-    public String displayHolidays(Model model){
+    public String displayHolidays(@RequestParam(required=false)boolean festival,
+                                  @RequestParam(required=false) boolean federal, Model model){ //So here with the help of RequestParam annotation, we can accept the new query params that my frontend application is sending to my backend controller
+
+        model.addAttribute("festival",festival); //  saving these inputs that I'm receiving from the getURL inside the model object, like I'm calling the addAttribute() , and I'm saving the values,Like if I receive true as a value, I will save that true value against the same attribute name. So here the attribute name,
+        model.addAttribute("federal", federal);
         List<Holiday> holidays= Arrays.asList(
                 new Holiday(" Jan 1 ","New Year's Day", Holiday.Type.FESTIVAL),
                 new Holiday(" Oct 31 ","Halloween", Holiday.Type.FESTIVAL),

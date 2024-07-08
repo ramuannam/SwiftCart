@@ -1,5 +1,14 @@
 package com.hustler.scalerschool.model;
 
+import lombok.Data;
+
+
+/*
+@Data annotation is provided by Lombok library which generates getter, setter,
+equals(), hashCode(), toString() methods & Constructor at compile time.
+This makes our code short and clean.
+* */
+@Data
 public class Holiday {
     private final String day;
     private final String reason;
@@ -8,22 +17,11 @@ public class Holiday {
     public enum Type{ // enum is used for constants.
          FESTIVAL, FEDERAL
     }
-
-    public Holiday(String day, String reason, Type type) { //dues to constructor we don't need setters. (or simply use lombok setters and getters)
-        this.day = day;
-        this.reason = reason;
-        this.type = type;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public String getReason() {
-        return reason;
-    }
 }
+//In this class:  since my fields are final in nature, you can see the constructor that is generated is of type all arguments constructor.
+//It is accepting all the arguments like what is the day?
+//What is the reason?
+//What is the type of the holiday?
+//And we also have getter methods for this and we don't have setter methods because we define these fields as final.
+//So Lombok also playing a very smart role here based upon how you are defining your fields.
+//Based upon that, it is generating the getters, setters and constructors.
