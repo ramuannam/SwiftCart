@@ -1,13 +1,13 @@
-package com.hustlers.ScalerNet;
+package com.hustlers.hustlers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BuddyNetApplication {
+public class HustlersApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BuddyNetApplication.class, args);
+		SpringApplication.run(HustlersApplication.class, args);
 	}
 
 }

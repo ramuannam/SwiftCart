@@ -11,8 +11,15 @@
         <option value="$PROJECT_DIR$/example_20/pom.xml" />
         <option value="$PROJECT_DIR$/Scalerschool/pom.xml" />
         <option value="$PROJECT_DIR$/backendProject/pom.xml" />
+        <option value="$PROJECT_DIR$/Hustlers/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/BuddyNet/pom.xml" />
+      </set>
+    </option>
+    <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
