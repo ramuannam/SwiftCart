@@ -1,10 +1,19 @@
+
+/*defaults:*/
+/*max_width:80rem;*/
+/*font-family:space Grotesk;*/
+/*font-family:space mono;*/
+/*font-size: 16,20,30;*/
+/*font-height:20,24,38;*/
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   max-width: 100%;
   flex-grow: 0;
- 
+
 }
 
 
@@ -25,6 +34,9 @@ body {
   box-sizing: border-box;
 }
 
+
+/*Navbar section*/
+
 .main-header {
   font-family: Mulish, sans-serif;
   text-align: center;
@@ -32,7 +44,7 @@ body {
   max-height: 4rem;
   box-sizing: border-box;
   padding: 10px 20px;
-  margin-bottom: 20px;
+
   z-index: 1; /*Add this*/
   background-color: rgb(255, 255, 255);
   border-bottom: 0.0625rem solid rgb(233, 236, 239);
@@ -50,17 +62,27 @@ body {
   align-items: center;
   height: 100%;
 }
+
+.headline {
+  text-align: center;
+  magin-top:0;
+}
+
 a {
   background: transparent;
 }
 #brand {
   width: 175px;
   height: 100px;
-  margin: 0 auto;
-  border-style: none;
+  margin: 0px  auto;
+  color:#007bff;
+  /*border-style: none;*/
   vertical-align: middle;
-  padding: 20px;
-    
+  padding-top: 35px;
+  padding-bottom: 20px;
+  font-family:SansSerif,Helvetica;
+
+
 }
 .In-nav {
   box-sizing: border-box;
@@ -90,6 +112,7 @@ a {
   box-sizing: border-box;
   flex-grow: 0;
 }
+/*Navbar section*/
 
 a:link {
   color: rgb(73, 80, 87);
@@ -109,116 +132,114 @@ a:hover {
   color: rgb(34, 139, 230);
   background-color: rgb(231, 245, 255);
 
-  /* text-decoration: underline rgb(37, 216, 112); */
-}
 
+}
+/*connect with hustlers*/
 #container {
   position: relative;
   top: 100px;
-  max-width: 80rem;
+  max-width: 800px;
   margin: 0 auto;
   /* text-align: center; */
   padding: 0 1rem;
 }
 
-.article {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: calc(3rem);
-  /* align-items: center; */
+.hustlers {
+  font-size: 64px;
+  line-height: 72px;
+
+  text-align: center;
+  font-family: "Space Grotesk";
+  font-weight: bold;
+
 }
+
 .article-first-flex {
-  max-width: 40rem;
+  position:relative;
+  align-text: center;
+  max-width: 800px;
   margin-right: calc(4.5rem);
 }
-
-.article-second-flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.article-secondflex-start {
-  width: 100%;
-  flex: 1 1 0%;
-  display:block;
-  margin:0;
-
-}
-.article-second-image{
-  position:relative;
+article h1 {
+  margin-top: 180px;
 }
 .article-text {
-  font-family: Mulish, sans-serif;
-  font-size: 1rem;
-  color: rgb(73, 80, 87);
+  font-family: "Space Grotesk";
+  font-size: 18px;
+  line-height: 28px;
+
+  color: rgb(58, 62, 66);
   /* font-size: inherit; */
   margin-top: 1rem;
 }
-.network {
-  width: calc(800px + 1.5vw);
-  height: calc(500px + 1.5vh);
-  /* object-fit: cover; */
-  /* width:100%;
-  height:auto; */
-  /* vertical-align:middle; */
-}
+/*connect with hustlers(end)*/
 
-.speedlink {
-  display: inline-block;
-  color: rgb(48, 238, 127);
-  font-size: 30px;
-  /* font-style: italic; */
-}
-article h1 {
-  /* text-align: center; */
-  margin-top: 180px;
-  /* display: inline-block; */
-}
-
-
+/*who are hustlers(start)*/
 .container-two-background{
   /* background-color: rgb(212, 255, 249); */
   width:100%;
 }
-
-
 .container-two{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
   padding:0 1rem;
   max-width:80rem;
   margin:0 auto;
   padding-bottom :2rem;
-  text-align:center;
+  font-family:"Space Grotesk";
+  font-size: 20px;
+  Line-height:2.5;
+
 }
-
-
-
+.container-two-in{
+  margin:20px;
+}
 .container-two-head{
-  /* box-sizing: border-box; */
-  /* font-family: Mulish, sans-serif; */
-    line-height: 1.5;
-    text-decoration: none;
-    text-align: center;
- 
-    /* font-weight: 600; */
-    /* font-size: 1.25rem; */
-    color: rgb(34, 139, 230);
-    /* letter-spacing: 0.03125rem; */
-    /* margin-bottom: 1.25rem; */
-    margin-top: 5rem;
-    padding-top:5rem;
-    padding-bottom:1.5rem;
+  text-decoration: none;
+  text-align: center;
+  color: rgb(34, 139, 230);
+  margin-top: 10rem;
+  padding-top:5rem;
+  padding-bottom:1.5rem;
 
 }
 .container-two-detail{
-  /* font-family: Mulish, sans-serif;
-  color: rgb(134, 142, 150);
-  font-size:inherit; */
   font-size: 18px;
-  color: rgb(73, 80, 87);
+  line-height: 28px;
+  font-family: "Space Grotesk";
   padding-bottom: 2rem;
 
- 
 }
+.article-image{
+
+
+}
+.article-image-details{
+  margin-top:10rem;
+}
+
+.network {
+  width: calc(1800px + 1.5vw);
+  height: calc(650px + 1.5vh);
+
+}
+
+
+
+/*who are hustlers(end)*/
+
+
+
+
+
+
+
+
+
+
+
 /* .third-c-background{
   background-color: rgb(250, 232, 217);
   width:100%;
@@ -232,7 +253,7 @@ article h1 {
 }
 .signup-button{
   padding:0 15px;
-  
+
   margin-left:50px;
   border-radius :8px;
   background-color:orange;
@@ -267,8 +288,8 @@ article h1 {
 .how-it-works{
   max-width:80rem;
   margin:0 auto;
- 
-  
+
+
 }
 .how-do{
   /* align-items: center; */
@@ -285,7 +306,7 @@ article h1 {
   margin-right: auto;
   border-radius: 20px 130px;
   padding-bottom: 30px;
-  
+
 }
 .how-do-flex{
   display:flex;
@@ -299,7 +320,7 @@ article h1 {
   max-width:80rem;
   margin: 50px auto;
   padding-bottom :0.5rem;
- 
+
 }
 .third-c-heading{
   text-align: center;
@@ -409,7 +430,7 @@ textarea {
 .footer {
   background-color: #333;
   color: whitesmoke;
-  padding: 50px 0;
+  padding: 20px 0;
   font-size: 14px;
 }
 
@@ -452,7 +473,7 @@ textarea {
 }
 
 .mail {
-  color: whitesmoke; /* Color for email links */
+  color: white; /* Color for email links */
 }
 
 /* Responsive adjustments */
@@ -470,7 +491,7 @@ textarea {
 
 
 /* responsive design (responsive design need to be added after the basic style have done, that is why below the basic style here.)----------------------------------------------------------------------- */
-/* 
+/*
 @media screen and (max-width: 1250px) {
   #body {
     width: ;
@@ -487,7 +508,7 @@ textarea {
     /* display: initial; */
     /* text-align: center; */
   }
-/* 
+/*
   * {
     max-width: 100%;
     box-sizing: border-box;
