@@ -1,6 +1,30 @@
+98.
+/ before adding any validations to the project first add the dependency into pom.xml
+
+>we are discussing before bean validation work by letting the developers to add the constraints inside
+the bean class itself.\
+Right now this is the Java Pojo or Java bean class that I maintaining in the backend that holds the
+information comes from the UI page.\
+Like you can see here, the name, mobileNum, email, subject and message.\
+These values comes from the Contact page.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+99.
 > ````   model.addAttribute("contact", new Contact());```` \
 So using model object, I need to create an attribute called contact.\
 And inside this attribute I need to send the new object of contact class.\

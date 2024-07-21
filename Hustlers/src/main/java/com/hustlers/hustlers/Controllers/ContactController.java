@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,7 @@ public class ContactController { //created new controller for contact as contact
         this.contactService=contactService;
     }
 
-    @RequestMapping("/contact")
+    @RequestMapping("/contact")     //So here we need to let our contact.html knows that there is a bean validation that we need to perform on top of the data that is provided by the end user.
     public String displayContactPage( Model model){
         model.addAttribute("contact", new Contact());
         return "contact.html";

@@ -6,6 +6,15 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+/*
+>we are discussing before bean validation work by letting the developers to add the constraints inside
+the bean class itself.\
+Right now this is the Java Pojo or Java bean class that I maintaining in the backend that holds the
+        information comes from the UI page.\
+Like you can see here, the name, mobileNum, email, subject and message.\
+These values comes from the Contact page.
+*/
+
 
 
 /*
