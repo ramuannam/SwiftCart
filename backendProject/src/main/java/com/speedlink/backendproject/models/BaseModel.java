@@ -10,7 +10,7 @@ import lombok.Setter;
 import java.util.Date;
 @Getter
 @Setter
-@MappedSuperclass
+@MappedSuperclass // for saying this class as mapped super class.
 public class BaseModel { //base model is like where common attributes reside, so that we can inherit these into other classes.
     @Id //for primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto Increment
