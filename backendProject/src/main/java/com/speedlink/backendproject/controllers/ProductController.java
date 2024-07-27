@@ -1,8 +1,10 @@
 package com.speedlink.backendproject.controllers;
 
 import com.speedlink.backendproject.exceptions.ProductNotFoundException;
+import com.speedlink.backendproject.models.Category;
 import com.speedlink.backendproject.models.Product;
 import com.speedlink.backendproject.services.FakeStoreProductService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,11 +24,12 @@ public class ProductController {
 
 //    private FakeStoreProductService fakeStoreProductService; // never depend on direct implementation of the class, better to depend on interface.
     public ProductService productService; //when spring creates object of productController spring need an object(as we can't create object of an interface) of  some class that creating/implementing this productService which is an Interface.(so here productService is being implemented by FakeStore service so that object of this FakeStore will be stored here, with the help of dependency injection, autowiring (using constructor).
-    public ProductController(ProductService productService){ //using constructor for autowiring.
+    public ProductController(@Qualifier("SelfProductService")
+                             ProductService productService){ //using constructor for autowiring.
         this.productService=productService;
     }
 
-       @GetMapping("{id}")
+       @GetMapping("/{id}")
        public ResponseEntity<Product> getProductById(@PathVariable("id") Long id) throws ProductNotFoundException {   //if you pass an id it should return Product object in the Response Entity.
 
 //        ResponseEntity<Product> responseEntity=null;
@@ -58,20 +61,32 @@ public class ProductController {
        }
 
        @PatchMapping("/{id}")  // partial update
-       public   Product updateProduct(@PathVariable("id") Long id,@RequestBody Product product){
+       public   Product updateProduct(@PathVariable("id") Long id, @RequestBody Product product) throws ProductNotFoundException {
         return productService.updateProduct(id,product);
+
+
+
        }
 
        @PutMapping("/{id}")  // Complete update or complete replace
-       public Product replaceProduct(@PathVariable("id") Long id,@RequestBody Product product){
+       public Product replaceProduct(@PathVariable("id") Long id, @RequestBody Product product){
            return null;
 
        }
-       public void deleteProduct(Long productId){
+
+       @DeleteMapping("/{id}")
+       public void deleteProduct(@PathVariable("id") Long productId){
+        productService.deleteProduct(productId);
       }
-//      public addProduct(){
-//
-//       }
+
+
+      @PostMapping()
+      public Product  addNewProduct( @RequestBody Product product){
+
+             return productService.addNewProduct(product);
+
+
+       }
 //       public limitResults(){
 //
 //       }

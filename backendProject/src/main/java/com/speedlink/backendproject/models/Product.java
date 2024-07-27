@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity
 public class Product extends BaseModel{
     private String title;
-    private double price;
+    private Double price;
 
     @ManyToOne // here many means the current table(product) = as FK
     private Category category;

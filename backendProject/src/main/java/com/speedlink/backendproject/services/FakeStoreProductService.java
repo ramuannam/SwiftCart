@@ -4,6 +4,7 @@ import com.speedlink.backendproject.dtos.FakeStoreProductDto;
 import com.speedlink.backendproject.exceptions.ProductNotFoundException;
 import com.speedlink.backendproject.models.Category;
 import com.speedlink.backendproject.models.Product;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpMessageConverterExtractor;
@@ -13,8 +14,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@Service//creates object of this class in spring context.
+//@Primary
+@Service("FakeStoreProductService")//creates object of this class in spring context.
 public class FakeStoreProductService implements ProductService { // so here compiler force you to implement all the methods of the interface as we are implementing an interface. jus right clcik and generate
    //using restTemplate object here which is in App context using DI (with the help of constructor)
    private RestTemplate restTemplate;
@@ -79,6 +80,11 @@ public class FakeStoreProductService implements ProductService { // so here comp
     @Override
     public void deleteProduct(Long id) {
 
+    }
+
+    @Override
+    public Product addNewProduct(Product product) {
+        return null;
     }
 
     //using a method as for the conversion to Product as this conversion need multiple times.

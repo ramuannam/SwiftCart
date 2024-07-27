@@ -14,8 +14,9 @@ import java.util.Date;
 public class BaseModel { //base model is like where common attributes reside, so that we can inherit these into other classes.
     @Id //for primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto Increment
-    private long id;
+    private Long id;
     private Date createdAt;
     private Date updatesAt;
 
 }
+
