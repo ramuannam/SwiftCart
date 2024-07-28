@@ -1,5 +1,6 @@
 package com.speedlink.backendproject.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
@@ -12,7 +13,8 @@ public class Product extends BaseModel{
     private String title;
     private Double price;
 
-    @ManyToOne // here many means the current table(product) = as FK
+    // here many means the current table(product)
+    @ManyToOne (cascade = CascadeType.REMOVE) // SO WHEN you save the product object, then automatically save(save means  automatically increments the id in db table and saves the incoming attributes/object the category id if the incoming object doesn't have the id.
     private Category category;
 }
 /*

@@ -77,12 +77,14 @@ public class SelfProductService implements ProductService{
     public Product addNewProduct(Product product) {
         Category category=product.getCategory();
 
-         if(category.getId()==null){
-             //we need to create a new Category object in the DB first
-             Category updatedcategory = categoryRepository.save(category);
-             product.setCategory(updatedcategory); // assigning the updatedcategory to product.
+//         if(category.getId()==null){  // if category doesnlt have id then first persist/save the id in category then save/persist the object.
+//             //we need to create a new Category object in the DB first
+//             Category updatedcategory = categoryRepository.save(category);
+//             product.setCategory(updatedcategory); // assigning the updatedcategory to product.
+//
+//         }
+          // the above commented code is handled by cascade.
 
-         }
          return productRepository.save(product);
     }
 

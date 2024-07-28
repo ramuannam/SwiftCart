@@ -37,4 +37,7 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
       //hql
       @Query("select p.id as id, p.title as title  from Product p where p.id=:x")
       List<ProductWithIdAndTitle> randomSearchMethod(Long x);
+
+      //sql
+
 }
