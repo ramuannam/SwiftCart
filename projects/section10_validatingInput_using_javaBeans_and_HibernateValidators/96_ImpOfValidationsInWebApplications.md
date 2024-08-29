@@ -8,13 +8,16 @@ So the backend or frotend need to say this info is valid as per the given input 
 
 
 eg:
-<input type="text"
+```
+< input type="text" 
 name="name"
 id="name"
 placeholder="Your Name"
-class="contact-input" \
+class="contact-input" 
 🔥  required="true"   // this makes necessary to put some valid value  (🔥client side validation)
 />
+
+ ```
 
 and for email, type:"email" for the need of @.
 

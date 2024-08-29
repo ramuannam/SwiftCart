@@ -7,6 +7,73 @@ Right now this is the Java Pojo or Java bean class that I maintaining in the bac
 information comes from the UI page.\
 Like you can see here, the name, mobileNum, email, subject and message.\
 These values comes from the Contact page.
+> 
+```
+<section class="contact-bg  contactPage-space" id="contact">
+    <div class="contact-container">
+        <div class="contact-title-main">
+            <h3 class="contact-head">Join Early</h3>
+        </div>
+        <div class="form-bg">
+            <div class="form-container">
+                <form
+                        th:action="@{/saveMsg}"
+                        method="post"
+                        class="signin-form"
+                        th:object="${contact}"
+                >
+                    <div class="input-grids">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input
+                                        type="text"
+                                        th:field="*{name}"
+                                        placeholder="Your Name"
+                                        class="contact-input"
+                                        required="true"
+
+                                />
+                            </div>
+                            <div class="col-sm-6">
+                                <input
+                                        type="number"
+                                        th:field="*{mobileNum}"
+                                        placeholder="Your Mobile Number"
+                                        class="contact-input"
+                                        required="true"
+                                />
+                            </div>
+                        </div>
+                        <input
+                                type="email"
+                                th:field="*{email}"
+                                placeholder="Your Email"
+                                class="contact-input"
+                                required="true"
+                        />
+                        <input
+                                type="text"
+                                th:field="*{subject}"
+                                placeholder="Subject"
+                                class="contact-input"
+                        />
+                    </div>
+                    <div class="form-input">
+                <textarea
+                        th:field="*{message}"
+                        placeholder="Type your message here"
+                ></textarea>
+                    </div>
+                    <div class="text-start">
+                        <button class="btn btn-style btn-style-3">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+ ```
 
 
 
