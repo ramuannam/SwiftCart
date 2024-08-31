@@ -10,15 +10,15 @@
         <module name="backendProject" />
         <module name="ScalerNet" />
         <module name="example_20" />
-        <module name="Scalerschool" />
-        <module name="SpeedLink" />
-        <module name="Hustlers" />
         <module name="BuddyNet (1)" />
-        <module name="demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="BuddyNet" target="17" />
+      <module name="demo" target="17" />
+      <module name="Hustlers" target="17" />
+      <module name="Scalerschool" target="17" />
+      <module name="SpeedLink" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
