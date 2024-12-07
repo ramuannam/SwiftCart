@@ -5,6 +5,7 @@ import com.speedlink.backendproject.models.Category;
 import com.speedlink.backendproject.models.Product;
 import com.speedlink.backendproject.services.FakeStoreProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class ProductController {
 
 //    private FakeStoreProductService fakeStoreProductService; // never depend on direct implementation of the class, better to depend on interface.
     public ProductService productService; //when spring creates object of productController spring need an object(as we can't create object of an interface) of  some class that creating/implementing this productService which is an Interface.(so here productService is being implemented by FakeStore service so that object of this FakeStore will be stored here, with the help of dependency injection, autowiring (using constructor).
-    public ProductController(@Qualifier("SelfProductService")
+    public ProductController(@Qualifier("FakeStoreProductService")
                              ProductService productService){ //using constructor for autowiring.
         this.productService=productService;
     }
@@ -56,8 +57,8 @@ public class ProductController {
        }
 
        @GetMapping()
-       public List<Product> getAllProducts(){
-        return  productService.getAllProducts();
+       public Page<Product> getAllProducts(@RequestParam("pageNumber") int pageNumber, @RequestParam("pageSize") int pageSize) throws ProductNotFoundException {
+        return  productService.getAllProducts( pageNumber,pageSize);
        }
 
        @PatchMapping("/{id}")  // partial update
