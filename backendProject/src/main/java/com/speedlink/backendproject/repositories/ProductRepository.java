@@ -2,6 +2,8 @@ package com.speedlink.backendproject.repositories;
 
 import com.speedlink.backendproject.models.Product;
 import com.speedlink.backendproject.projections.ProductWithIdAndTitle;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -31,7 +33,7 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
 
       Optional<Product> findById(Long id);
 
-      List<Product> findAll(Sort sort);  //here no need of optional as list cant ne null and in worst case it can be empty and its ok to be empty.
+      Page<Product> findAll(Pageable pageable);  //here no need of optional as list cant ne null and in worst case it can be empty and its ok to be empty.
 
 
       //hql
