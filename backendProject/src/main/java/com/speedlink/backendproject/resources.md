@@ -31,6 +31,12 @@ Latency comparison: https://gist.github.com/jboner/2841832
 
 Redis intro: https://www.baeldung.com/spring-data-redis-tutorial
 
+redis cli: https://redis.io/docs/latest/develop/connect/cli/
 
+
+-------------------------------------------
+https://mvnrepository.com/artifact/org.apache.commons/commons-lang3/3.17.0
+
+OAUTH as Resource server: https://docs.spring.io/spring-authorization-server/reference/getting-started.html
 
 

@@ -36,14 +36,33 @@ public class SelfProductService implements ProductService{
         return productOptional.get();
     }
 
-    @Override
-    public  Page<Product> getAllProducts(int pageNumber, int pageSize) {
 
-//        Sort sort=Sort.by("price").ascending().and(Sort.by("title").descending());
-      return productRepository.findAll(
-                PageRequest.of(pageNumber,pageSize,Sort.by("price").descending())  //directly passing sort parameter based on price in descending order.
-        );
-    }
+//    @Override
+//    public  Page<Product> getAllProducts(int pageNumber, int pageSize) {
+//
+////        Sort sort=Sort.by("price").ascending().and(Sort.by("title").descending());
+//      return productRepository.findAll(
+//                PageRequest.of(pageNumber,
+//                        pageSize,
+//                        Sort.by("price").descending())  //directly passing sort parameter based on price in descending order.
+//        );
+//    }
+
+
+@Override
+public List<Product> getAllProducts() {
+
+//        Sort sort = Sort.by("price").ascending().and(Sort.by("title").descending())
+//        Sort.by("price").ascending().and(Sort.by("title").ascending().and(Sort.by("quantity").ascending()
+
+//        return productRepository.findAll(
+//                PageRequest.of(pageNumber,
+//                        pageSize,
+//                        Sort.by("price").ascending())
+//        );
+
+    return productRepository.findAll();
+}
 
     //Partial update : Patch
     @Override
