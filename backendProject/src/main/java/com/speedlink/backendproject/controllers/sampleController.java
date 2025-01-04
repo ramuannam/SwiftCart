@@ -23,4 +23,5 @@ public class sampleController {
     public String sayBye(){
         return "Bye Everyone, Take care!";
     }
+
 }

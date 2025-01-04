@@ -36,10 +36,25 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
       Page<Product> findAll(Pageable pageable);  //here no need of optional as list cant ne null and in worst case it can be empty and its ok to be empty.
 
 
-      //hql
+      //HQL
       @Query("select p.id as id, p.title as title  from Product p where p.id=:x")
       List<ProductWithIdAndTitle> randomSearchMethod(Long x);
 
-      //sql
+      //SQL
+      @Query(value = "select p.id as id, p.title as title from product p where p.id = :productId", nativeQuery = true)
+      List<ProductWithIdAndTitle> randomSearchMethod2(Long productId);
+
 
 }
+/*
+1. Repository should be an interface.
+2. Repository should extend JPARepository.
+
+Optional<Product> optionalProduct = productRepository.findById(100);
+
+String title = p.getTitle(); // NPE
+
+
+Read -> done
+
+ */
