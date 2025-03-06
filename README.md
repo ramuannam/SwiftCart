@@ -19,7 +19,7 @@ SwiftCart is a high-performance, microservices-based e-commerce platform designe
 ### 📌 Setup Instructions
 1. Clone the repository
 ```
-git clone https://github.com/yourusername/swiftcart.git
+git clone https://github.com/ramuannam/swiftcart.git
 cd swiftcart
 ```
 2. Configure MySQL, Redis, and Kafka
