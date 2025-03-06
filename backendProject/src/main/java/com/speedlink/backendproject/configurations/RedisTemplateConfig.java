@@ -1,5 +1,6 @@
 package com.speedlink.backendproject.configurations;
 
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -27,6 +28,7 @@ public class RedisTemplateConfig{
     }
 
     @Bean
+    @LoadBalanced
     public RestTemplate getRestTemplate(){
         return  new RestTemplate();
     }
