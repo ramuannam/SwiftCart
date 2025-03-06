@@ -21,7 +21,7 @@ public class AuthUtility {
 
         //making call from productService to userService using restTemplate.
          UserDto userDto=  restTemplate.getForObject(
-                "http://localhost:8080/users/validate/"+tokenValue, //THIS IS the api we call to validate the token.
+                "http://USERSERVICE/users/validate/"+tokenValue, //THIS IS the api we call to validate the token. (here we hardcoded the url for user service but in reality it shouldn't the service discovery routes this)
                      UserDto.class     // type of response we are expecting from this call.so that restTemplate can convert the output of this above url to this object(of this UserDto class).
         );
 
